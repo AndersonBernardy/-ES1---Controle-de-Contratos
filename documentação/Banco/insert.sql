@@ -3,9 +3,8 @@ INSERT INTO `estado` (`id_estado`, `nome_estado`, `sigla_estado`) VALUES ('1', '
 INSERT INTO `cidade` (`id_cidade`, `nome_cidade`, `id_estado`) VALUES ('1', 'Foz do Iguaçu', '1'), ('2', 'Curitiba', '1'), ('3', 'Osasco', '2');
 INSERT INTO `rua` (`id_rua`, `nome_rua`) VALUES ('1', 'Avenida Salvador'), ('2', 'Rua Inacio Martins'), ('3', 'Rua Coqueiro');
 INSERT INTO `endereco` (`id_endereco`, `cep`, `id_cidade`, `id_bairro`, `id_rua`) VALUES ('1', '85863610', '1', '1', '1'), ('2', '81720160', '2', '5', '2'), ('3', '06184080', '3', '6', '3');
-INSERT INTO `ddi` (`ddi`) VALUES ('+55');
 INSERT INTO `ddd` (`ddd`) VALUES ('45'), ('11'), ('41');
 INSERT INTO `cliente` (`id_cliente`, `nome_cliente`, `cpf`, `id_endereco`, `numero_endereco`, `complemento_endereco`, `is_pessoa_fisica`) VALUES ('1', 'Anderson Bernardy Martinelli', '07041605957', '1', '31', 'Complemento', '1'), ('2', 'Guilherme Locks Gregorio', '10842088903', '2', '108', 'Apartamento 302', '1'), ('3', 'Giovani Rubim Francisco', '06128022995', '2', '780', 'Complemento', '1');
-INSERT INTO `telefone` (`id_cliente`, `numero_telefone`, `ddi`, `ddd`) VALUES ('1', '998142342', '+55', '45'), ('2', '999604911', '+55', '41'), ('3', '998551119', '+55', '11');
+INSERT INTO `telefone` (`id_cliente`, `numero_telefone`, `ddd`) VALUES ('1', '998142342', '45'), ('2', '999604911', '41'), ('3', '998551119', '11');
 INSERT INTO `email` (`id_cliente`, `email`) VALUES ('1', 'andersonbernardy@outlook.com'), ('2', 'guilocksgregorio@gmail.com'), ('3', 'giovanirubim@bacon.com');
 INSERT INTO `tipo_contrato` (`id_tipo_contrato`, `nome_tipo_contrato`) VALUES ('1', 'Prestação de Serviços'), ('2', 'Serviços Jurídicos'), ('3', 'Contratação de Mão de Obra');

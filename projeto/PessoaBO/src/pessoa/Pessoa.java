@@ -9,7 +9,7 @@ import telefone.Telefone;
 public abstract class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 4185391264119004055L;
-	
+
 	protected String nome;
 	protected List<Email> emailList;
 	protected List<Telefone> telefoneList;

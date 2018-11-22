@@ -42,8 +42,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `contratos`.`estado` (
   `id_estado` INT NOT NULL AUTO_INCREMENT,
   `nome_estado` VARCHAR(64) NOT NULL,
+  `sigla_estado` VARCHAR(4) NOT NULL,
   PRIMARY KEY (`id_estado`),
-  UNIQUE INDEX `nome_estado_UNIQUE` (`nome_estado` ASC) VISIBLE)
+  UNIQUE INDEX `nome_estado_UNIQUE` (`nome_estado` ASC) VISIBLE,
+  UNIQUE INDEX `sigla_estado_UNIQUE` (`sigla_estado` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -146,26 +148,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `contratos`.`ddi`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `contratos`.`ddi` (
-  `ddi` VARCHAR(4) NOT NULL DEFAULT '+55',
-  PRIMARY KEY (`ddi`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `contratos`.`telefone`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `contratos`.`telefone` (
   `numero_telefone` VARCHAR(16) NOT NULL,
   `id_cliente` INT NOT NULL,
   `ddd` VARCHAR(4) NOT NULL,
-  `ddi` VARCHAR(4) NOT NULL,
   PRIMARY KEY (`numero_telefone`, `id_cliente`),
   INDEX `fk_telefone_cliente1_idx` (`id_cliente` ASC) VISIBLE,
   INDEX `fk_telefone_ddd1_idx` (`ddd` ASC) VISIBLE,
-  INDEX `fk_telefone_ddi1_idx` (`ddi` ASC) VISIBLE,
   CONSTRAINT `fk_telefone_cliente1`
     FOREIGN KEY (`id_cliente`)
     REFERENCES `contratos`.`cliente` (`id_cliente`)
@@ -174,11 +165,6 @@ CREATE TABLE IF NOT EXISTS `contratos`.`telefone` (
   CONSTRAINT `fk_telefone_ddd1`
     FOREIGN KEY (`ddd`)
     REFERENCES `contratos`.`ddd` (`ddd`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_telefone_ddi1`
-    FOREIGN KEY (`ddi`)
-    REFERENCES `contratos`.`ddi` (`ddi`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -2,7 +2,7 @@ package telefone;
 
 import java.io.Serializable;
 
-import util.validaException;
+import util.PessoaException;
 
 public class DDD implements Serializable {
 
@@ -14,11 +14,11 @@ public class DDD implements Serializable {
 		return ddd;
 	}
 
-	public void setDdd(String ddd) throws validaException {
+	public void setDdd(String ddd) throws PessoaException {
 		if(isDDD(ddd)) {
 		this.ddd = ddd;
 		}else {
-			throw new validaException("DDD INVALIDO");
+			throw new PessoaException("DDD INVALIDO");
 		}
 	}
 
