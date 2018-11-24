@@ -4,11 +4,20 @@ import java.io.Serializable;
 
 public class Estado implements Serializable {
 
-	private static final long serialVersionUID = 4567832058487210447L;
+	private static final long serialVersionUID = -2707574064107607313L;
 
 	private String estado;
 	private String sigla;
+	private int idEstado;
 	
+	public int getIdEstado() {
+		return idEstado;
+	}
+
+	public void setIdEstado(int idEstado) {
+		this.idEstado = idEstado;
+	}
+
 	public String getEstado() {
 		return estado;
 	}

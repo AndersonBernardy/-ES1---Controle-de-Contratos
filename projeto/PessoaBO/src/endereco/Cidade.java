@@ -4,11 +4,20 @@ import java.io.Serializable;
 
 public class Cidade implements Serializable {
 
-	private static final long serialVersionUID = 2345308565987443955L;
-
+	private static final long serialVersionUID = 787410616497560145L;
+	
 	private String cidade;
 	private Estado estado;
+	private int idCidade;
 	
+	public int getIdCidade() {
+		return idCidade;
+	}
+
+	public void setIdCidade(int idCidade) {
+		this.idCidade = idCidade;
+	}
+
 	public String getCidade() {
 		return cidade;
 	}
