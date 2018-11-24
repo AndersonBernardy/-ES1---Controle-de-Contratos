@@ -24,11 +24,11 @@ public class CEP implements Serializable {
 
 	@Override
 	public String toString() {
-		return cep;
+		return cep.substring(0, 5) + "-" + cep.substring(5, 8);
 	}
 
 	public boolean isCEP(String cep) {
-		return cep.matches("[0-9]{5}-[0-9]{3}");
+		return cep.matches("[0-9]{8}");
 	}
 
 }

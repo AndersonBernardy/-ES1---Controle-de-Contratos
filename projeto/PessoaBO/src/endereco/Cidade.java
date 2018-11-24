@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Cidade implements Serializable {
 
-	private static final long serialVersionUID = 787410616497560145L;
-	
-	private String cidade;
+	private static final long serialVersionUID = 5984241411871195387L;
+
+	private String nomeCidade;
 	private Estado estado;
 	private int idCidade;
 	
@@ -18,12 +18,12 @@ public class Cidade implements Serializable {
 		this.idCidade = idCidade;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getNomeCidade() {
+		return nomeCidade;
 	}
 	
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setNomeCidade(String nomeCidade) {
+		this.nomeCidade = nomeCidade;
 	}
 	
 	public Estado getEstado() {
@@ -36,7 +36,7 @@ public class Cidade implements Serializable {
 
 	@Override
 	public String toString() {
-		return cidade + "/" + estado;
+		return nomeCidade + "/" + estado;
 	}
 	
 	

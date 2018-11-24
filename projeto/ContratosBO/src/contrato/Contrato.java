@@ -7,8 +7,8 @@ import cliente.Cliente;
 
 public class Contrato implements Serializable {
 	
-	private static final long serialVersionUID = -6052046969965716779L;
-	
+	private static final long serialVersionUID = 7546461218388905298L;
+
 	private Cliente cliente;
 	private TipoContrato tipoContrato;
 	private double valor;
@@ -16,6 +16,15 @@ public class Contrato implements Serializable {
 	private Date inicioValidade;
 	private Date fimValidade;
 	private String descricao;
+	private int numero;
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -75,11 +84,12 @@ public class Contrato implements Serializable {
 
 	@Override
 	public String toString() {
-		return "" + cliente + tipoContrato 
+		return "" + cliente 
+				+ "\n" + tipoContrato 
 				+ "\nValor: " + valor 
-				+ "\n" + descricao 
+				+ "\n" + "Descrição: " + descricao 
 				+ "\nDataEmissao: " + dataEmissao 
-				+ "\nValidade: " + inicioValidade + fimValidade;
+				+ "\nValidade: " + inicioValidade + " até " + fimValidade;
 	}
 	
 }

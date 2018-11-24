@@ -26,9 +26,9 @@ public class ConnectionPool {
 
 	private ConnectionPool() throws SQLException {
 
-		String url = "jdbc:mysql://127.0.0.1/oficina";
+		String url = "jdbc:mysql://127.0.0.1/contratos?useSSL=false";
 		String user = "root";
-		String password = "";
+		String password = "root";
 		connectionPool = new ArrayList<>();
 		usedConnections = new ArrayList<>();
 

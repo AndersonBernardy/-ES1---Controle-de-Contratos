@@ -4,10 +4,18 @@ import java.io.Serializable;
 
 public class Bairro implements Serializable {
 
-	private static final long serialVersionUID = -7405594288666920572L;
+	private static final long serialVersionUID = 5172840116211386329L;
 
-	private String bairro;
+	private String nomeBairro;
 	private int idBairro;
+	
+	public String getNomeBairro() {
+		return nomeBairro;
+	}
+
+	public void setNomeBairro(String nomeBairro) {
+		this.nomeBairro = nomeBairro;
+	}
 
 	public int getIdBairro() {
 		return idBairro;
@@ -17,17 +25,9 @@ public class Bairro implements Serializable {
 		this.idBairro = idBairro;
 	}
 
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
 	@Override
 	public String toString() {
-		return bairro;
+		return nomeBairro;
 	}
 	
 }

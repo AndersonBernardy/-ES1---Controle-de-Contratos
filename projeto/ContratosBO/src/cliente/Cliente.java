@@ -29,7 +29,7 @@ public class Cliente extends PessoaFisica implements Serializable{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nQuantidade de Contratos: " + quantidadeContratos;
+		return super.toString() + "\nQuantidade de Contratos: " + quantidadeContratos + "\n";
 	}
 	
 }

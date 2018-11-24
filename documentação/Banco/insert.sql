@@ -8,3 +8,5 @@ INSERT INTO `cliente` (`id_cliente`, `nome_cliente`, `cpf`, `id_endereco`, `nume
 INSERT INTO `telefone` (`id_cliente`, `numero_telefone`, `ddd`) VALUES ('1', '998142342', '45'), ('2', '999604911', '41'), ('3', '998551119', '11');
 INSERT INTO `email` (`id_cliente`, `email`) VALUES ('1', 'andersonbernardy@outlook.com'), ('2', 'guilocksgregorio@gmail.com'), ('3', 'giovanirubim@bacon.com');
 INSERT INTO `tipo_contrato` (`id_tipo_contrato`, `nome_tipo_contrato`) VALUES ('1', 'Prestação de Serviços'), ('2', 'Serviços Jurídicos'), ('3', 'Contratação de Mão de Obra');
+INSERT INTO `contratos`.`contrato` (`id_contrato`, `data_emissao`, `inicio_validade`, `fim_validade`, `descricao`, `valor`, `id_tipo_contrato`, `id_cliente`) VALUES ('1', '2018-11-25', '2018-11-25', '2018-12-25', 'descricao', '10', '1', '1');
+INSERT INTO `contratos`.`contrato` (`id_contrato`, `data_emissao`, `inicio_validade`, `fim_validade`, `descricao`, `valor`, `id_tipo_contrato`, `id_cliente`) VALUES ('2', '2018-11-25', '2018-11-25', '2018-12-25', 'descricao', '15', '1', '1');

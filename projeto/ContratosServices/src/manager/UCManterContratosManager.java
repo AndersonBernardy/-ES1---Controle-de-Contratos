@@ -30,6 +30,7 @@ public class UCManterContratosManager {
 			if(connection != null) {
 				ConnectionPool.getInstance().releaseConnection(connection);
 			}
+			e.printStackTrace();
 		}
 		
 		return contrato;

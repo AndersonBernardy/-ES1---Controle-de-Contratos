@@ -9,7 +9,7 @@ public class Telefone implements Serializable {
 	private static final long serialVersionUID = 3229619560611919781L;
 
 	private DDD ddd;
-	private String telefone;
+	private String numeroTelefone;
 
 	public DDD getDdd() {
 		return ddd;
@@ -19,13 +19,13 @@ public class Telefone implements Serializable {
 		this.ddd = ddd;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getNumeroTelefone() {
+		return numeroTelefone;
 	}
 
-	public void setTelefone(String telefone) throws PessoaException {
-		if(isTelefone(telefone)) {
-			this.telefone = telefone;
+	public void setNumeroTelefone(String numeroTelefone) throws PessoaException {
+		if(isTelefone(numeroTelefone)) {
+			this.numeroTelefone = numeroTelefone;
 		} else {
 			throw new PessoaException("TELEFONE INVALIDO");
 		}
@@ -33,12 +33,12 @@ public class Telefone implements Serializable {
 
 	@Override
 	public String toString() {
-		return ddd + " " + telefone;
+		return ddd + " " + numeroTelefone;
 	}
 
 	public boolean isTelefone(String telefone) {
-		return telefone.matches("[6-9][0-9]{3}-[0-9]{4}") ||
-				telefone.matches("[9][6-9][0-9]{3}-[0-9]{4}");
+		return telefone.matches("[6-9][0-9]{7}") ||
+				telefone.matches("[9][6-9][0-9]{7}");
 	}
 
 }

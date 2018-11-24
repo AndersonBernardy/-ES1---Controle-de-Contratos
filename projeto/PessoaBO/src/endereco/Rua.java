@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Rua implements Serializable {
 
-	private static final long serialVersionUID = -1708555828843578480L;
+	private static final long serialVersionUID = 8568907250779968407L;
 
-	private String rua;
+	private String nomeRua;
 	private int idRua;
 	
 	public int getIdRua() {
@@ -17,17 +17,17 @@ public class Rua implements Serializable {
 		this.idRua = idRua;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getNomeRua() {
+		return nomeRua;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setNomeRua(String nomeRua) {
+		this.nomeRua = nomeRua;
 	}
 
 	@Override
 	public String toString() {
-		return this.rua;
+		return nomeRua;
 	}
 	
 	
