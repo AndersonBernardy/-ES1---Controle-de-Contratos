@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import telefone.Telefone;
 
-public abstract class PessoaFisica extends Pessoa implements Serializable {
+public class PessoaFisica extends Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 3652474480541251574L;
 

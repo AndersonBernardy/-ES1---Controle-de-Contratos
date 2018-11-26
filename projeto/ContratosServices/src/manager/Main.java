@@ -6,7 +6,7 @@ public class Main {
 		
 		UCManterContratosManager manager = new UCManterContratosManager();
 		
-		System.out.println(manager.consultarContratoPorNumero(1));
+		System.out.println(manager.consultarContratoPorNumero(2));
 		
 	}
 

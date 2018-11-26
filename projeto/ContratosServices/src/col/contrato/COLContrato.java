@@ -9,11 +9,13 @@ import contrato.Contrato;
 import contrato.TipoContrato;
 import dao.contrato.DAOContrato;
 import dao.contrato.DAOTipoContrato;
+import util.NegocioException;
 import util.PessoaException;
 
 public class COLContrato {
 
-	public Contrato consultarContrato(Connection connection, int numero) throws SQLException, PessoaException {
+	public Contrato consultarContrato(Connection connection, int numero)
+			throws SQLException, PessoaException, NegocioException {
 		DAOContrato daoContrato = new DAOContrato();
 		Contrato contrato = daoContrato.selectContrato(connection, numero);
 

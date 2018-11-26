@@ -2,15 +2,24 @@ package cliente;
 
 import java.io.Serializable;
 
-import pessoa.PessoaFisica;
+import pessoa.Pessoa;
 
-public class Cliente extends PessoaFisica implements Serializable{
+public class Cliente implements Serializable{
 	
-	private static final long serialVersionUID = -5457473960386228749L;
-	
+	private static final long serialVersionUID = 2209281355099449742L;
+
+	Pessoa pessoa;
 	private int quantidadeContratos;
 	private int idCliente;
 	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	public int getQuantidadeContratos() {
 		return quantidadeContratos;
 	}
@@ -29,7 +38,7 @@ public class Cliente extends PessoaFisica implements Serializable{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nQuantidade de Contratos: " + quantidadeContratos + "\n";
+		return pessoa + "\nQuantidade de Contratos: " + quantidadeContratos + "\n";
 	}
 	
 }

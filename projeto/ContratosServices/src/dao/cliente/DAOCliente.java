@@ -10,6 +10,9 @@ import endereco.Endereco;
 import pessoa.CNPJ;
 import pessoa.CPF;
 import pessoa.EnderecoEspecifico;
+import pessoa.Pessoa;
+import pessoa.PessoaFisica;
+import pessoa.PessoaJuridica;
 import util.PessoaException;
 
 public class DAOCliente {
@@ -25,19 +28,25 @@ public class DAOCliente {
 		if(result.next()) {
 			boolean isPessoaFisica = result.getBoolean("is_pessoa_fisica");
 			cliente = new Cliente();
+			Pessoa pessoa;
 			
-			cliente.setNome(result.getString("nome_cliente"));
 			
 			if(isPessoaFisica) {
+				pessoa = new PessoaFisica();
+				cliente.setPessoa(pessoa);
 				CPF cpf = new CPF();
 				cpf.setCpf(result.getString("cpf"));
-				cliente.setCpf(cpf);
+				((PessoaFisica) cliente.getPessoa()).setCpf(cpf);
 			} else {
+				pessoa = new PessoaJuridica();
+				cliente.setPessoa(pessoa);
 				CNPJ cnpj = new CNPJ();
 				cnpj.setCnpj(result.getString("cnpj"));
-//				cliente.setCnpj(cnpj);
+				((PessoaJuridica) cliente.getPessoa()).setCnpj(cnpj);
 			}
 
+			cliente.getPessoa().setNome(result.getString("nome_cliente"));
+			
 			EnderecoEspecifico enderecoEspecifico = new EnderecoEspecifico();
 			enderecoEspecifico.setComplemento(result.getString("complemento_endereco"));
 			enderecoEspecifico.setNumero(result.getInt("numero_endereco"));
@@ -46,7 +55,7 @@ public class DAOCliente {
 			endereco.setIdEndereco(result.getInt("id_endereco"));
 			enderecoEspecifico.setEndereco(endereco);
 			
-			cliente.setEnderecoEspecifico(enderecoEspecifico);
+			cliente.getPessoa().setEnderecoEspecifico(enderecoEspecifico);
 			
 		}
 		

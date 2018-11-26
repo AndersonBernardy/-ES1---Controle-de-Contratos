@@ -22,18 +22,18 @@ public class COLCliente {
 		
 		DAOEmail daoEmail = new DAOEmail();
 		List<Email> emailList = daoEmail.selectEmail(connection, idCliente);
-		cliente.setEmailList(emailList);
+		cliente.getPessoa().setEmailList(emailList);
 
 		DAOTelefone daoTelefone = new DAOTelefone();
 		List<Telefone> telefoneList = daoTelefone.selectTelefone(connection, idCliente);
-		cliente.setTelefoneList(telefoneList);
+		cliente.getPessoa().setTelefoneList(telefoneList);
 		
 		cliente.setQuantidadeContratos(daoCliente.getQuantidadeContratos(connection, idCliente));
 		
 		COLEndereco colEndereco = new COLEndereco();
 		Endereco endereco = colEndereco.consultarEndereco(connection, 
-				cliente.getEnderecoEspecifico().getEndereco().getIdEndereco());
-		cliente.getEnderecoEspecifico().setEndereco(endereco);
+				cliente.getPessoa().getEnderecoEspecifico().getEndereco().getIdEndereco());
+		cliente.getPessoa().getEnderecoEspecifico().setEndereco(endereco);
 		
 		return cliente;
 	}
