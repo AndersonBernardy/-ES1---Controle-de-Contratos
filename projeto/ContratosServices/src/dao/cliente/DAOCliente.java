@@ -13,6 +13,7 @@ import pessoa.EnderecoEspecifico;
 import pessoa.Pessoa;
 import pessoa.PessoaFisica;
 import pessoa.PessoaJuridica;
+import util.NegocioException;
 import util.PessoaException;
 
 public class DAOCliente {
@@ -76,6 +77,44 @@ public class DAOCliente {
 		}
 		
 		return quantidade;
+	}
+
+	public int selectIdCliente(Connection connection, CPF cpf) throws SQLException, NegocioException {
+		
+		int idCliente = 0;
+		String sql = "SELECT id_cliente FROM cliente WHERE cpf = ?";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, cpf.getCpf());
+		ResultSet result = statement.executeQuery();
+		
+		if(result.next()) {
+			idCliente = result.getInt(1);
+		} else {
+			throw new NegocioException("Não há nenhum cliente com este cpf.");
+		}
+		
+		return idCliente;
+		
+	}
+
+	public int selectIdCliente(Connection connection, CNPJ cnpj) throws SQLException, NegocioException {
+		
+		int idCliente = 0;
+		String sql = "SELECT id_cliente FROM cliente WHERE cnpj = ?";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, cnpj.getCnpj());
+		ResultSet result = statement.executeQuery();
+		
+		if(result.next()) {
+			idCliente = result.getInt(1);
+		} else {
+			throw new NegocioException("Não há nenhum cliente com este cnpj.");
+		}
+		
+		return idCliente;
+		
 	}
 
 

@@ -8,12 +8,28 @@ import contrato.Contrato;
 
 public class UCManterContratosManager {
 
-	public void cadastrarContrato(Contrato contrato) {
+	public void cadastrarContrato(Contrato contrato) throws Exception {
+		Connection connection = null;
+
+		try {
+		
+		connection = ConnectionPool.getInstance().getConnection();
+		
+		COLContrato colContrato = new COLContrato();
+		colContrato.cadastrarContrato(connection, contrato);
+		
+		ConnectionPool.getInstance().releaseConnection(connection);
+
+		} catch (Exception e) {
+			if(connection != null) {
+				ConnectionPool.getInstance().releaseConnection(connection);
+			}
+			e.printStackTrace();
+		}
 		
 	}
 	
 	public Contrato consultarContratoPorNumero(int numero) throws Exception {
-		
 		Connection connection = null;
 		Contrato contrato = null;
 		
