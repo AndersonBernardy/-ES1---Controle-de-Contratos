@@ -13,7 +13,7 @@ public class PessoaFisica extends Pessoa implements Serializable {
 	public PessoaFisica() {
 		super();
 	}
-	
+
 	public CPF getCpf() {
 		return cpf;
 	}
@@ -24,18 +24,21 @@ public class PessoaFisica extends Pessoa implements Serializable {
 
 	@Override
 	public String toString() {
-		String pessoa = nome + "\n"
-				+ "CPF: " + cpf + "\n";
+		String pessoa = nome + "\n" + "CPF: " + cpf + "\n";
 		pessoa += "\n" + enderecoEspecifico + "\n";
-		pessoa += "\nEmails: \n";		
+		pessoa += "\nEmails: \n";
 		for (Email email : emailList) {
-			pessoa += email + "\n";
+			if (email != null) {
+				pessoa += email + "\n";
+			}
 		}
 		pessoa += "\nTelefones: \n";
 		for (Telefone telefone : telefoneList) {
-			pessoa += telefone + "\n";
+			if (telefone != null) {
+				pessoa += telefone + "\n";
+			}
 		}
 		return pessoa;
 	}
-	
+
 }

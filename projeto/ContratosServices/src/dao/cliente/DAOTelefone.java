@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import telefone.DDD;
 import telefone.Telefone;
@@ -13,9 +11,10 @@ import util.PessoaException;
 
 public class DAOTelefone {
 
-	public List<Telefone> selectTelefone(Connection connection, int idCliente) throws PessoaException, SQLException {
-		List<Telefone> telefoneList = new ArrayList<Telefone>();
+	public Telefone[] selectTelefone(Connection connection, int idCliente) throws PessoaException, SQLException {
+		Telefone[] telefoneList = new Telefone[10];
 		Telefone telefone = null;
+		int i = 0;
 		String sql = "SELECT * FROM telefone WHERE id_cliente = ?;";
 		
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -28,7 +27,7 @@ public class DAOTelefone {
 			DDD ddd = new DDD();
 			ddd.setDdd(result.getString("ddd"));
 			telefone.setDdd(ddd);
-			telefoneList.add(telefone);
+			telefoneList[i++] = telefone;
 		}
 		
 		return telefoneList;

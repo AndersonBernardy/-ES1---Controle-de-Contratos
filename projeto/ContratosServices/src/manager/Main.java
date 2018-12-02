@@ -27,12 +27,10 @@ public class Main {
 		contrato.setValor(10);
 		contrato.setDescricao("DESCRICAO");
 
-		
 		UCManterContratosManager manager = new UCManterContratosManager();
 		
 		manager.cadastrarContrato(contrato);
 		System.out.println(manager.consultarContratoPorNumero(123));
-		
 		
 	}
 

@@ -28,11 +28,15 @@ public class PessoaJuridica extends Pessoa implements Serializable {
 		pessoa += "\n" + enderecoEspecifico + "\n";
 		pessoa += "\nEmails: \n";		
 		for (Email email : emailList) {
-			pessoa += email + "\n";
+			if (email != null) {
+				pessoa += email + "\n";
+			}
 		}
 		pessoa += "\nTelefones: \n";
 		for (Telefone telefone : telefoneList) {
-			pessoa += telefone + "\n";
+			if (telefone != null) {
+				pessoa += telefone + "\n";
+			}
 		}
 		return pessoa;
 	}

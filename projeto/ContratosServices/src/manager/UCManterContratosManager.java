@@ -3,7 +3,7 @@ package manager;
 import java.sql.Connection;
 
 import col.contrato.COLContrato;
-import conexao.ConnectionPool;
+import connection.ConnectionFactory;
 import contrato.Contrato;
 
 public class UCManterContratosManager {
@@ -13,18 +13,20 @@ public class UCManterContratosManager {
 
 		try {
 		
-		connection = ConnectionPool.getInstance().getConnection();
+		connection = ConnectionFactory.getInstance().getConnection();
 		
 		COLContrato colContrato = new COLContrato();
 		colContrato.cadastrarContrato(connection, contrato);
 		
-		ConnectionPool.getInstance().releaseConnection(connection);
+		ConnectionFactory.getInstance().releaseConnection(connection);
 
 		} catch (Exception e) {
-			if(connection != null) {
-				ConnectionPool.getInstance().releaseConnection(connection);
-			}
+			
 			e.printStackTrace();
+		} finally {
+			if(connection != null) {
+				ConnectionFactory.getInstance().releaseConnection(connection);
+			}
 		}
 		
 	}
@@ -35,18 +37,19 @@ public class UCManterContratosManager {
 		
 		try {
 		
-		connection = ConnectionPool.getInstance().getConnection();
+		connection = ConnectionFactory.getInstance().getConnection();
 		
 		COLContrato colContrato = new COLContrato();
 		contrato = colContrato.consultarContrato(connection, numero);
 		
-		ConnectionPool.getInstance().releaseConnection(connection);
+		ConnectionFactory.getInstance().releaseConnection(connection);
 
 		} catch (Exception e) {
-			if(connection != null) {
-				ConnectionPool.getInstance().releaseConnection(connection);
-			}
 			e.printStackTrace();
+		} finally {
+			if(connection != null) {
+				ConnectionFactory.getInstance().releaseConnection(connection);
+			}
 		}
 		
 		return contrato;

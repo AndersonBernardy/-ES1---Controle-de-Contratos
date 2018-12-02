@@ -2,7 +2,6 @@ package col.cliente;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 import cliente.Cliente;
 import col.endereco.COLEndereco;
@@ -21,11 +20,11 @@ public class COLCliente {
 		Cliente cliente = daoCliente.selectCliente(connection, idCliente);
 		
 		DAOEmail daoEmail = new DAOEmail();
-		List<Email> emailList = daoEmail.selectEmail(connection, idCliente);
+		Email[] emailList = daoEmail.selectEmail(connection, idCliente);
 		cliente.getPessoa().setEmailList(emailList);
 
 		DAOTelefone daoTelefone = new DAOTelefone();
-		List<Telefone> telefoneList = daoTelefone.selectTelefone(connection, idCliente);
+		Telefone[] telefoneList = daoTelefone.selectTelefone(connection, idCliente);
 		cliente.getPessoa().setTelefoneList(telefoneList);
 		
 		cliente.setQuantidadeContratos(daoCliente.getQuantidadeContratos(connection, idCliente));
