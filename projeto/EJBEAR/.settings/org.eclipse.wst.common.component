@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="EJBEAR">
         <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
-        <dependent-module archiveName="EJB.jar" deploy-path="/" handle="module:/resource/EJB/EJB">
-            <dependent-object/>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="EJBClient.jar" deploy-path="/" handle="module:/resource/EJBClient/EJBClient">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="APIBanco.jar" deploy-path="/lib" handle="module:/resource/APIBanco/APIBanco">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -22,6 +15,13 @@
         </dependent-module>
         <dependent-module archiveName="EJBWEB.war" deploy-path="/" handle="module:/resource/EJBWEB/EJBWEB">
             <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJB.jar" deploy-path="/" handle="module:/resource/EJB/EJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBClient.jar" deploy-path="/lib" handle="module:/resource/EJBClient/EJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

@@ -6,13 +6,9 @@ import javax.ejb.Stateless;
 import contrato.Contrato;
 import manager.UCManterContratosManager;
 
-/**
- * Session Bean implementation class UCManterContratosBean
- */
 @Stateless
 @LocalBean
 public class UCManterContratosBean implements UCManterContratosBeanRemote{
-
 
     public UCManterContratosBean() {
         

@@ -1,7 +1,6 @@
 package dao.contrato;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,9 +32,9 @@ public class DAOContrato {
 			cliente.setIdCliente(result.getInt("id_cliente"));
 			contrato.setCliente(cliente);
 
-			contrato.setDataEmissao(result.getDate("data_emissao"));
-			contrato.setInicioValidade(result.getDate("inicio_validade"));
-			contrato.setFimValidade(result.getDate("fim_validade"));
+			contrato.setDataEmissao((java.util.Date) result.getDate("data_emissao"));
+			contrato.setInicioValidade((java.util.Date) result.getDate("inicio_validade"));
+			contrato.setFimValidade((java.util.Date) result.getDate("fim_validade"));
 			contrato.setDescricao(result.getString("descricao"));
 			contrato.setValor(result.getDouble("valor"));
 
@@ -51,9 +50,9 @@ public class DAOContrato {
 
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setInt(1, contrato.getNumero());
-		statement.setDate(2, (Date) contrato.getDataEmissao());
-		statement.setDate(3, (Date) contrato.getInicioValidade());
-		statement.setDate(4, (Date) contrato.getFimValidade());
+		statement.setDate(2, (java.sql.Date) contrato.getDataEmissao());
+		statement.setDate(3,  (java.sql.Date) contrato.getInicioValidade());
+		statement.setDate(4,  (java.sql.Date) contrato.getFimValidade());
 		statement.setString(5, contrato.getDescricao());
 		statement.setDouble(6, contrato.getValor());
 		statement.setInt(7, contrato.getTipoContrato().getIdTipoContrato());
@@ -69,10 +68,10 @@ public class DAOContrato {
 
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setInt(1, contrato.getCliente().getIdCliente());
-		statement.setDate(2, (Date) contrato.getInicioValidade());
-		statement.setDate(3, (Date) contrato.getFimValidade());
-		statement.setDate(4, (Date) contrato.getInicioValidade());
-		statement.setDate(5, (Date) contrato.getFimValidade());
+		statement.setDate(2, (java.sql.Date) contrato.getInicioValidade());
+		statement.setDate(3, (java.sql.Date) contrato.getFimValidade());
+		statement.setDate(4, (java.sql.Date) contrato.getInicioValidade());
+		statement.setDate(5, (java.sql.Date) contrato.getFimValidade());
 
 		ResultSet result = statement.executeQuery();
 
