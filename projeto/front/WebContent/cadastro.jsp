@@ -9,7 +9,7 @@
 
   </head>
   <body>
-		<form id="form" class="form-horizontal" action="ServletCadastro"  method="POST">
+		<form id="form" class="form-horizontal" action="Servlet"  method="POST">
 			<!-- Form Name -->
 			<legend>Cadastrar Contrato</legend>
 
