@@ -1,31 +1,32 @@
 package pessoa;
 
 import java.io.Serializable;
+import java.util.List;
 
 import telefone.Telefone;
 
-public abstract class Pessoa implements Serializable {
+public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 2612904316583941854L;
 
 	protected String nome;
-	protected Email[] emailList;
-	protected Telefone[] telefoneList;
+	protected List<Email> emailList;
+	protected List<Telefone> telefoneList;
 	protected EnderecoEspecifico enderecoEspecifico;
 
-	public Email[] getEmailList() {
+	public List<Email> getEmailList() {
 		return emailList;
 	}
 
-	public void setEmailList(Email[] emailList) {
+	public void setEmailList(List<Email> emailList) {
 		this.emailList = emailList;
 	}
 
-	public Telefone[] getTelefoneList() {
+	public List<Telefone> getTelefoneList() {
 		return telefoneList;
 	}
 
-	public void setTelefoneList(Telefone[] telefoneList) {
+	public void setTelefoneList(List<Telefone> telefoneList) {
 		this.telefoneList = telefoneList;
 	}
 
@@ -51,15 +52,11 @@ public abstract class Pessoa implements Serializable {
 		pessoa += "\n" + enderecoEspecifico + "\n";
 		pessoa += "\nEmails: \n";
 		for (Email email : emailList) {
-			if (email != null) {
-				pessoa += email + "\n";
-			}
+			pessoa += email + "\n";
 		}
 		pessoa += "\nTelefones: \n";
 		for (Telefone telefone : telefoneList) {
-			if (telefone != null) {
-				pessoa += telefone + "\n";
-			}
+			pessoa += telefone + "\n";
 		}
 		return pessoa;
 	}

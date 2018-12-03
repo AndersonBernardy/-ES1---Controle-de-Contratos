@@ -13,7 +13,7 @@ public class PessoaJuridica extends Pessoa implements Serializable {
 	public PessoaJuridica() {
 		super();
 	}
-	
+
 	public CNPJ getCnpj() {
 		return cnpj;
 	}
@@ -26,17 +26,13 @@ public class PessoaJuridica extends Pessoa implements Serializable {
 	public String toString() {
 		String pessoa = nome + ", CNPJ: " + cnpj + "\n";
 		pessoa += "\n" + enderecoEspecifico + "\n";
-		pessoa += "\nEmails: \n";		
+		pessoa += "\nEmails: \n";
 		for (Email email : emailList) {
-			if (email != null) {
-				pessoa += email + "\n";
-			}
+			pessoa += email + "\n";
 		}
 		pessoa += "\nTelefones: \n";
 		for (Telefone telefone : telefoneList) {
-			if (telefone != null) {
-				pessoa += telefone + "\n";
-			}
+			pessoa += telefone + "\n";
 		}
 		return pessoa;
 	}
