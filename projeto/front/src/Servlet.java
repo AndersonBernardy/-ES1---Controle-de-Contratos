@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +21,8 @@ public class Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String numContrato = request.getParameter("numContrato");
-		String a = request.getParameter("numContrato");
-		String b = request.getParameter("numContrato");
 		
-		//faz a pesquisa aqui
-		request.setAttribute("teste", "rola");
-		request.getRequestDispatcher("resultadoPesquisa.jsp").forward(request, response);
+		request.getRequestDispatcher("resultadoPesquisa.jsp?numContrato="+numContrato).forward(request, response);
 			
 	}
 	
