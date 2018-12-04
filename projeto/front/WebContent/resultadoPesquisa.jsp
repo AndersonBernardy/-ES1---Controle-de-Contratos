@@ -34,13 +34,28 @@
 		  return {"cliente":{"pessoa":{"cpf":{"cpf":"07041605957"},"nome":"Anderson Bernardy Martinelli","emailList":[{"email":"andersonbernardy@outlook.com"}],"telefoneList":[{"ddd":{"ddd":"45"},"numeroTelefone":"998142342"}],"enderecoEspecifico":{"endereco":{"cep":{"cep":"85863610"},"cidade":{"nomeCidade":"Foz do Iguaçu","estado":{"nomeEstado":"Paraná","sigla":"PR","idEstado":1},"idCidade":1},"bairro":{"nomeBairro":"Parque Presidente II","idBairro":1},"rua":{"nomeRua":"Avenida Salvador","idRua":1},"idEndereco":1},"numero":31,"complemento":"Complemento"}},"quantidadeContratos":2,"idCliente":21},"tipoContrato":{"tipo":"Prestação de Serviços","idTipoContrato":1},"valor":10.0,"dataEmissao":"nov 25, 2018","inicioValidade":"nov 25, 2018","fimValidade":"dez 25, 2018","descricao":"descricao","numero":1};
 		})();
 		
-		/*
-		$.getJSON("demo_ajax_json.js", function(result){
-            $.each(result, function(i, field){
-                $("div").append(field + " ");
+		function RequestService() {
+            $.ajax({
+                type: "GET",
+                url: "meucu",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function(data) { SucessCallback(data.d); },
+                error: function(data) { FailureCallBack(data); }
             });
-        });
-		*/
+        }
+		
+  
+        function SucessCallback(result) {
+            $('p').html('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
+            console.log("deubom");
+        }
+  
+        function FailureCallBack(result) {
+            alert(result.status + ' ' + result.statusText);
+            console.log("deuruim");
+        }
 		
 		console.log(contratoFake);
 		
@@ -134,7 +149,7 @@
 		        <tr>
 		            <th>Tipo</td>
 		            <td id="tipoContrato">Prestação de Serviços</td>
-		        </tr>
+		        </tr>     
 		        <tr>
 		            <th>Descrição</td>
 		            <td id="descricao">fodase</td>

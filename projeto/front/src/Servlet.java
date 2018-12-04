@@ -1,10 +1,13 @@
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cliente.Cliente;
 
 /**
  * Servlet implementation class LoginCheck
@@ -48,12 +51,8 @@ public class Servlet extends HttpServlet {
 		String descricao = request.getParameter("descricao");
 		String total = request.getParameter("total");
 		
-		System.out.println("Informações");
-		System.out.println(numContrato+" \n"+dtEmissao+" \n"+validadeInicio+" \n"+validadeFim+" \n");
-		System.out.println(tipoContrato+" \n"+nomeCliente+" \n"+cpfCliente+" \n"+cnpjCliente+" \n");
-		System.out.println(email+" \n"+emailOpcional+" \n"+telefone+" \n"+telefoneOpcional+" \n");
-		System.out.println(cep+" \n"+cidade+" \n"+bairro+" \n"+rua+" \n");
-		System.out.println(numCasa+" \n"+descricao+" \n"+total);
+		Cliente c = new Cliente();
+		
 		
 		if(1==1) {
 			response.sendRedirect("sucessoCadastro.jsp");

@@ -209,7 +209,16 @@
 			    
 			  </div>
 			</div>
-
+	
+			<!-- Textarea -->
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="textarea">Informe Imagem</label>
+			  <div class="col-md-4">
+			  	<input type="file" id="imagemContrato" name="imagemContrato" accept="image/png, image/jpeg">
+			  </div>
+			</div>
+			
+					       
 			<!-- Textarea -->
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="textarea">Descrição</label>

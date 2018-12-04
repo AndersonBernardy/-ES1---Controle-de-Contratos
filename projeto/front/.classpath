@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson"/>
+	<classpathentry kind="lib" path="/home/victor/Faculdade/-ES1---Controle-de-Contratos/artefatos/ContratosBO.jar"/>
+	<classpathentry kind="lib" path="/home/victor/Faculdade/-ES1---Controle-de-Contratos/artefatos/PessoaBO.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
